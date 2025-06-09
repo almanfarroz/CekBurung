@@ -266,6 +266,9 @@ export default function About() {
           </div>
         </div>
       )}
+      <footer className='text-[#033641]'>
+        © 2025 CekBurung. All rights reserved
+      </footer>
     </div>
   );
 }
