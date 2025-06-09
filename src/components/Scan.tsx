@@ -213,63 +213,54 @@ export default function Scan() {
         </section>
 
         <section className="flex justify-center items-center">
-  {preview && showCropper ? (
-    <div className="relative w-full max-w-[600px] aspect-square">
-      <Cropper
-        image={preview}
-        crop={crop}
-        zoom={zoom}
-        aspect={1}
-        onCropChange={setCrop}
-        onZoomChange={setZoom}
-        onCropComplete={(_, areaPixels) => setCroppedAreaPixels(areaPixels)}
-      />
-      <input
-        type="range"
-        min={1}
-        max={3}
-        step={0.1}
-        value={zoom}
-        onChange={(e) => setZoom(Number(e.target.value))}
-        className="absolute bottom-4 left-1/2 accent-[#033641] transform -translate-x-1/2 w-1/2"
-      />
-      <button
-        onClick={showCroppedPreview}
-        className="absolute top-2 right-2 bg-green-600 text-white px-4 py-1 text-sm rounded-lg"
-      >
-        Gunakan
-      </button>
-    </div>
-  ) : croppedImage ? (
-    <div className="relative w-full max-w-[600px] aspect-square flex items-center justify-center pb-8">
-      <img
-        src={croppedImage}
-        alt="Hasil Crop"
-        className="w-full h-full object-cover rounded-lg shadow-lg"
-      />
-      <button
-        onClick={() => {
-          setPreview(null);
-          setCroppedImage(null);
-        }}
-        className="absolute top-2 right-2 bg-white text-[#033641] w-8 h-8 rounded-lg flex items-center justify-center border border-gray-300 shadow-lg md:hover:bg-red-500 md:hover:text-white"
-      >
-        ×
-      </button>
-      <button
-        onClick={sendImageToBackend}
-        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-11/12 bg-[#033641] text-white py-3 rounded-xl md:hover:bg-[#0AC5C7]"
-      >
-        {loading ? 'Memproses...' : 'Identifikasi Sekarang'}
-      </button>
-    </div>
-  ) : (
-    <div className="w-full max-w-[600px] aspect-square flex flex-col text-center items-center justify-center bg-gray-100 rounded-lg border border-dashed border-gray-300 text-gray-400">
-      Pratinjau Gambar Akan Ditampilkan Di Sini
-    </div>
-  )}
-</section>
-
+          {preview && showCropper ? (
+            <div className="relative w-[360px] h-[360px] md:w-[600px] md:h-[600px]">
+              <Cropper
+                image={preview}
+                crop={crop}
+                zoom={zoom}
+                aspect={1}
+                onCropChange={setCrop}
+                onZoomChange={setZoom}
+                onCropComplete={(_, areaPixels) => setCroppedAreaPixels(areaPixels)}
+              />
+              <input
+                type="range"
+                min={1}
+                max={3}
+                step={0.1}
+                value={zoom}
+                onChange={(e) => setZoom(Number(e.target.value))}
+                className="absolute bottom-4 left-1/2 accent-[#033641] transform -translate-x-1/2 w-1/2"
+              />
+              <button
+                onClick={showCroppedPreview}
+                className="absolute top-2 right-2 bg-green-600 text-white px-4 py-1 text-sm rounded-lg"
+              >Gunakan</button>
+            </div>
+          ) : croppedImage ? (
+            <div className="w-full max-w-[600px] aspect-square relative items-center justify-center pb-8">
+              <img src={croppedImage} alt="Hasil Crop" className="w-full h-full object-cover rounded-lg shadow-lg" />
+              <button
+                onClick={() => {
+                  setPreview(null);
+                  setCroppedImage(null);
+                }}
+                className="absolute top-2 right-2 bg-white text-[#033641] w-8 h-8 rounded-lg flex items-center justify-center border border-gray-300 shadow-lg md:hover:bg-red-500 md:hover:text-white"
+              >
+                ×
+              </button>
+              <button
+                onClick={sendImageToBackend}
+                className="mt-4 w-full bg-[#033641] text-white py-3 rounded-xl md:hover:bg-[#0AC5C7]"
+              >{loading ? 'Memproses...' : 'Identifikasi Sekarang'}</button>
+            </div>
+          ) : (
+            <div className="w-[360px] h-[360px] md:w-[600px] md:h-[600px] flex flex-col text-center items-center justify-center bg-gray-100 rounded-lg border border-dashed border-gray-300 text-gray-400">
+              Pratinjau Gambar Akan Ditampilkan Di Sini
+            </div>
+          )}
+        </section>
       </main>
 
       {isCameraOpen && (
