@@ -1,21 +1,20 @@
 import { Area } from 'react-easy-crop';
 
-const getCroppedImg = async (imageSrc: string, crop: Area): Promise<string> => {
+const getCroppedImg = async (image: string, crop: Area): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const image = new Image();
-    image.src = imageSrc;
-    image.crossOrigin = 'anonymous'; // Untuk menghindari masalah CORS
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
 
-    image.onload = () => {
-      const canvas = document.createElement('canvas');
+    if (!context) throw new Error('2D context tidak tersedia');
+
+    const imageSrc = new Image();
+    imageSrc.src = image;
+    
+    imageSrc.onload = function (){
       canvas.width = crop.width;
       canvas.height = crop.height;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return reject(new Error('2D context tidak tersedia'));
-
-      ctx.drawImage(
-        image,
+      context.drawImage(
+        imageSrc, 
         crop.x,
         crop.y,
         crop.width,
@@ -26,11 +25,11 @@ const getCroppedImg = async (imageSrc: string, crop: Area): Promise<string> => {
         crop.height
       );
 
-      const base64Image = canvas.toDataURL('image/png');
-      resolve(base64Image);
+    const croppedUrl = canvas.toDataURL('image/png');
+    resolve(croppedUrl);
     };
 
-    image.onerror = () => reject(new Error('Gagal memuat gambar'));
+    imageSrc.onerror = () => reject(new Error('Gagal memuat gambar'));
   });
 };
 
