@@ -41,7 +41,7 @@ export default function About() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-[#033641] leading-tight mb-8">Tentang CekBurung</h2>
 
           <p className="text-lg leading-relaxed text-justify mb-4">
-            Website <strong>CekBurung</strong> merupakan sebuah <strong>alat edukasi</strong> yang bertujuan untuk membantu masyarakat dalam mengenali <strong>spesies burung di indonesia yang boleh dipelihara</strong>, sehingga masyarakat dapat terhindar dari potensi jeratan hukum.
+            Aplikasi <strong>CekBurung</strong> merupakan sebuah <strong>alat edukasi</strong> yang bertujuan untuk membantu masyarakat dalam mengenali <strong>spesies burung di indonesia yang boleh dipelihara</strong>, sehingga masyarakat dapat terhindar dari potensi jeratan hukum.
           </p>
           <p className="text-lg leading-relaxed text-justify mb-4">
             Sistem ini dirancang untuk memberikan informasi nama spesies burung, status perlindungan, serta endemisitasnya hanya dengan <strong>mengunggah atau mengambil gambar burung</strong> secara langsung.

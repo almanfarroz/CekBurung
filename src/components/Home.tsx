@@ -54,7 +54,7 @@ export default function Home() {
           </div>
 
           <p className="text-base md:text-lg text-[#033641]">
-            Aplikasi berbasis website untuk mengidentifikasi spesies burung di indonesia secara cepat dan akurat. Ambil
+            Aplikasi berbasis web untuk mengidentifikasi spesies burung di indonesia secara cepat dan akurat. Ambil
             gambar atau gunakan kamera untuk mengetahui nama spesies burung serta status perlindungannya.
           </p>
 
