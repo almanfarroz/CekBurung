@@ -239,7 +239,7 @@ export default function Scan() {
               >Gunakan</button>
             </div>
           ) : croppedImage ? (
-            <div className="w-full max-w-[600px] aspect-square relative items-center justify-center pb-8">
+            <div className="w-full aspect-square relative items-center justify-center pb-8">
               <img src={croppedImage} alt="Hasil Crop" className="w-full h-full object-cover rounded-lg shadow-lg" />
               <button
                 onClick={() => {
