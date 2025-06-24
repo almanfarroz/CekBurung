@@ -214,7 +214,7 @@ export default function Scan() {
 
         <section className="flex justify-center items-center">
           {preview && showCropper ? (
-            <div className="relative w-[360px] h-[360px] md:w-[600px] md:h-[600px]">
+            <div className="relative w-full h-full">
               <Cropper
                 image={preview}
                 crop={crop}
