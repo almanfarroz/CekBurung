@@ -26,7 +26,7 @@ export default function Scan() {
   const [result, setResult] = useState<BirdResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [crop, setCrop] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(-3);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null);
   const [showCropper, setShowCropper] = useState(true);
   const [open, setOpen] = useState(false);
@@ -71,7 +71,7 @@ export default function Scan() {
 
     setPreview(DataUrl);
     setCrop({ x: 0, y: 0 });           
-    setZoom(1);                         
+    setZoom(-3);                         
     setCroppedAreaPixels(null);      
     setShowCropper(true);            
   
@@ -98,7 +98,7 @@ export default function Scan() {
 
         setPreview(URL.createObjectURL(file));
         setCrop({ x: 0, y: 0 });
-        setZoom(1);
+        setZoom(-3);
         setCroppedAreaPixels(null);
         setShowCropper(true);
       
