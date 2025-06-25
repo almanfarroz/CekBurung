@@ -318,7 +318,7 @@ export default function Scan() {
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-bold text-[#F28513]">Identifikasi Tidak Valid</h2>
               <p className="text-[#033641] text-sm">
-                Gambar yang Anda unggah memiliki tingkat kepercayaan rendah, yaitu kurang dari 75% dan tidak dapat dikenali
+                Gambar yang Anda unggah memiliki tingkat kepercayaan rendah, yaitu kurang dari 70% dan tidak dapat dikenali
                 sebagai burung tertentu. Silakan coba gambar lain.
               </p>
               <button onClick={() => setShowPopup(false)} className="bg-red-500 md:hover:bg-red-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg">Tutup</button>
