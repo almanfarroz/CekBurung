@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ShieldAlert, Globe2, Languages, BadgeCheck, Feather, SearchCheck } from "lucide-react";
 
 const API_URL = 'https://backend-production-5db8.up.railway.app/prediction/';
+// const API_URL = 'http://localhost:8000/prediction/';
 
 interface BirdResult {
   bird_types_prediction: string;
