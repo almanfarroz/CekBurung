@@ -32,7 +32,7 @@ export default function Scan() {
   const [open, setOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const confidenceValue = parseFloat(result?.confidence?.replace('%', '') || '0');
-  const isLowConfidence = confidenceValue < 75;
+  const isLowConfidence = confidenceValue < 50;
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const isMobileDevice = () => {
     return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
