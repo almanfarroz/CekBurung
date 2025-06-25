@@ -94,11 +94,36 @@ export default function Scan() {
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
-      setPreview(URL.createObjectURL(file));
-      setCrop({ x: 0, y: 0 });
-      setZoom(1);
-      setCroppedAreaPixels(null);
-      setShowCropper(true);
+
+      if (file.size > 3_000_000) { // > 1MB
+        const reader = new FileReader();
+        reader.onload = () => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context?.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const DataUrl = canvas.toDataURL('image/png');
+
+            setPreview(DataUrl);
+            setCrop({ x: 0, y: 0 });
+            setZoom(1);
+            setCroppedAreaPixels(null);
+            setShowCropper(true);
+          };
+          img.src = reader.result as string;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setPreview(URL.createObjectURL(file));
+        setCrop({ x: 0, y: 0 });
+        setZoom(1);
+        setCroppedAreaPixels(null);
+        setShowCropper(true);
+      }
     }
   };
 
