@@ -392,6 +392,7 @@ export default function Scan() {
                     <span className="font-medium text-red-700">Status Perlindungan</span>
                   </div>
                   <span className="font-bold text-red-600 text-right">{result.status_perlindungan}</span>
+                  {/* <span className={`font-bold text-right ${result.status_perlindungan === 'Dilindungi' ? 'text-green-600' : 'text-red-600'}`}></span> */}
                 </div>
 
                 {/* Catatan Tambahan */}
