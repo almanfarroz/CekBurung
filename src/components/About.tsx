@@ -28,7 +28,7 @@ export default function About() {
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        <ul className={`md:flex text-m md:text-base font-medium ${open ? 'flex items-center text-center absolute top-full left-0 w-full bg-white border-t px-6 py-4 shadow-lg z-50' : 'hidden'} md:static md:bg-transparent md:shadow-none`}>
+        <ul className={`md:flex text-m md:text-base font-medium ${open ? 'flex flex-col items-center text-center absolute top-full left-0 w-full bg-white border-t px-6 py-4 shadow-lg z-50' : 'hidden'} md:static md:bg-transparent md:shadow-none`}>
           <li className="w-full"><Link to="/" className="block w-full py-3 px-4 text-[#033641] md:hover:text-[#0AC5C7] md:hover:bg-gray-100 rounded-lg" onClick={() => setOpen(false)}>Beranda</Link></li>
           <li className="w-full"><Link to="/scan" className="block w-full py-3 px-4 text-[#033641] md:hover:text-[#0AC5C7] md:hover:bg-gray-100 rounded-lg" onClick={() => setOpen(false)}>Identifikasi</Link></li>
           <li className="w-full"><Link to="/list" className="block w-full py-3 px-4 text-[#033641] md:hover:text-[#0AC5C7] md:hover:bg-gray-100 rounded-lg" onClick={() => setOpen(false)}>List</Link></li>
