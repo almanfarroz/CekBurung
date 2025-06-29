@@ -160,7 +160,7 @@ export default function Scan() {
       const data = await apiResponse.json();
       setResult({
         bird_types_prediction: data.data?.bird_types_prediction || 'Tidak Diketahui',
-        confidence: data.data?.confidence ? `${data.data.confidence * 100}%` : '0%',
+        confidence: data.data?.confidence ? `${(data.data.confidence * 100).toFixed(2)}%` : '0%',
         indo_name: data.data?.indo_name || '-',
         english_name: data.data?.english_name || '-',
         latin_name: data.data?.latin_name || '-',
